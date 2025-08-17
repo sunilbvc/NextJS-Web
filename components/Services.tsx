@@ -4,12 +4,10 @@ import { motion } from 'framer-motion'
 import { 
   Instagram, 
   Facebook, 
-  Twitter, 
-  Linkedin, 
-  Code, 
-  Smartphone, 
   Search, 
   BarChart3,
+  Code, 
+  Smartphone, 
   Target,
   Users,
   Zap,
@@ -32,16 +30,16 @@ export default function Services() {
       features: ['Audience Targeting', 'Ad Creative Design', 'Campaign Management', 'ROI Optimization']
     },
     {
-      icon: Twitter,
-      title: 'Twitter Management',
-      description: 'Engage with your audience in real-time and build meaningful conversations around your brand.',
-      features: ['Community Management', 'Trend Monitoring', 'Engagement Strategies', 'Crisis Management']
+      icon: Search,
+      title: 'Google Ads Management',
+      description: 'Drive targeted traffic and conversions through strategic Google Ads campaigns and optimization.',
+      features: ['Search Campaigns', 'Display Advertising', 'Remarketing', 'Performance Optimization']
     },
     {
-      icon: Linkedin,
-      title: 'LinkedIn B2B Marketing',
-      description: 'Connect with professionals and decision-makers in your industry for business growth.',
-      features: ['Thought Leadership', 'Lead Generation', 'Company Page Optimization', 'Networking Strategies']
+      icon: BarChart3,
+      title: 'SEO & Analytics',
+      description: 'Improve your search rankings and track performance with comprehensive SEO strategies.',
+      features: ['Technical SEO', 'Keyword Research', 'Content Optimization', 'Performance Tracking']
     }
   ]
 

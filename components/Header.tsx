@@ -10,6 +10,7 @@ export default function Header() {
   const navigation = [
     { name: 'Home', href: '#home' },
     { name: 'Services', href: '#services' },
+    { name: 'Pricing', href: '#pricing' },
     { name: 'About', href: '#about' },
     { name: 'Portfolio', href: '#portfolio' },
     { name: 'Blog', href: '/blog' },
@@ -22,7 +23,7 @@ export default function Header() {
       <div className="container-custom">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-3">
             <div className="w-10 h-10 bg-gradient-to-br from-pink-500 to-purple-500 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-xl">D</span>
             </div>
@@ -33,13 +34,13 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-8">
             {navigation.map((item) => (
               item.href.startsWith('#') ? (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-gray-300 hover:text-pink-400 font-medium transition-colors duration-200"
+                  className="text-gray-300 hover:text-pink-400 font-medium transition-colors duration-200 whitespace-nowrap"
                 >
                   {item.name}
                 </a>
@@ -47,7 +48,7 @@ export default function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-gray-300 hover:text-pink-400 font-medium transition-colors duration-200"
+                  className="text-gray-300 hover:text-pink-400 font-medium transition-colors duration-200 whitespace-nowrap"
                 >
                   {item.name}
                 </Link>
@@ -55,36 +56,39 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Contact Info */}
-          <div className="hidden lg:flex items-center space-x-4">
-            <div className="flex items-center space-x-2 text-sm text-gray-400">
-              <Phone className="w-4 h-4" />
-              <span>8104691455</span>
+          {/* Right Side - Contact Info + CTA Button */}
+          <div className="flex items-center space-x-8">
+            {/* Contact Info */}
+            <div className="hidden xl:flex items-center space-x-6">
+              <div className="flex items-center space-x-2 text-sm text-gray-400">
+                <Phone className="w-4 h-4" />
+                <span className="whitespace-nowrap">8104691455</span>
+              </div>
+              <div className="flex items-center space-x-2 text-sm text-gray-400">
+                <Mail className="w-4 h-4" />
+                <span className="whitespace-nowrap">hello@devnestdigital.com</span>
+              </div>
             </div>
-            <div className="flex items-center space-x-2 text-sm text-gray-400">
-              <Mail className="w-4 h-4" />
-              <span>hello@devnestdigital.com</span>
+
+            {/* CTA Button */}
+            <div className="hidden md:block">
+              <a href="#contact" className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl whitespace-nowrap">
+                Get Started
+              </a>
             </div>
-          </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
-            <a href="#contact" className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-              Get Started
-            </a>
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden p-2"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </button>
           </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
-          </button>
         </div>
 
         {/* Mobile Navigation */}
