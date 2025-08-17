@@ -30,7 +30,7 @@ export default function Footer() {
     try {
       // Import and use Firebase subscription function
       const { subscribeEmail } = await import('../lib/firebase')
-      const result = await subscribeEmail(newsletterEmail, 'footer-newsletter')
+      const result = await subscribeEmail(newsletterEmail)
       
       if (result.success) {
         setNewsletterStatus('success')
@@ -51,10 +51,10 @@ export default function Footer() {
   const quickLinks = [
     { name: 'Home', href: '#home' },
     { name: 'Services', href: '#services' },
+    { name: 'Pricing', href: '#pricing' },
     { name: 'About', href: '#about' },
     { name: 'Portfolio', href: '#portfolio' },
     { name: 'Contact', href: '#contact' },
-    { name: 'Blog', href: '#' },
     { name: 'Careers', href: '#' },
     { name: 'Privacy Policy', href: '#' }
   ]

@@ -26,7 +26,7 @@ export default function EmailSubscription() {
     try {
       // Import and use Firebase subscription function
       const { subscribeEmail } = await import('../lib/firebase')
-      const result = await subscribeEmail(email, 'newsletter')
+      const result = await subscribeEmail(email)
       
       if (result.success) {
         setStatus('success')
