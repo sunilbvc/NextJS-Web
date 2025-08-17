@@ -1,10 +1,52 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Facebook, Twitter, Instagram, Linkedin, Youtube, Phone, Mail, MapPin } from 'lucide-react'
+import { Facebook, Twitter, Instagram, Linkedin, Youtube, Phone, Mail, MapPin, CheckCircle, XCircle, Loader2 } from 'lucide-react'
+import { useState } from 'react'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
+  
+  // Newsletter subscription state
+  const [newsletterEmail, setNewsletterEmail] = useState('')
+  const [isSubscribing, setIsSubscribing] = useState(false)
+  const [newsletterStatus, setNewsletterStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [newsletterMessage, setNewsletterMessage] = useState('')
+
+  // Handle newsletter subscription
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    if (!newsletterEmail || !newsletterEmail.includes('@')) {
+      setNewsletterStatus('error')
+      setNewsletterMessage('Please enter a valid email address')
+      return
+    }
+
+    setIsSubscribing(true)
+    setNewsletterStatus('idle')
+    setNewsletterMessage('')
+
+    try {
+      // Import and use Firebase subscription function
+      const { subscribeEmail } = await import('../lib/firebase')
+      const result = await subscribeEmail(newsletterEmail, 'footer-newsletter')
+      
+      if (result.success) {
+        setNewsletterStatus('success')
+        setNewsletterMessage('Thank you for subscribing! You\'ll receive updates soon.')
+        setNewsletterEmail('')
+      } else {
+        setNewsletterStatus('error')
+        setNewsletterMessage(result.error || 'Subscription failed. Please try again.')
+      }
+    } catch (error) {
+      setNewsletterStatus('error')
+      setNewsletterMessage('An unexpected error occurred. Please try again.')
+    } finally {
+      setIsSubscribing(false)
+    }
+  }
 
   const quickLinks = [
     { name: 'Home', href: '#home' },
@@ -139,16 +181,49 @@ export default function Footer() {
               {/* Newsletter Signup */}
               <div className="mt-6">
                 <h5 className="text-sm font-semibold mb-3">Stay Updated</h5>
-                <div className="flex">
-                  <input
-                    type="email"
-                    placeholder="Your email"
-                    className="flex-1 px-3 py-2 bg-gray-800 border border-gray-700 rounded-l-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-                  />
-                  <button className="px-4 py-2 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white rounded-r-lg transition-all duration-200">
-                    Subscribe
-                  </button>
-                </div>
+                <form onSubmit={handleNewsletterSubmit} className="space-y-3">
+                  <div className="flex">
+                    <input
+                      type="email"
+                      placeholder="Your email"
+                      className="flex-1 px-3 py-2 bg-gray-800 border border-gray-700 rounded-l-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                      value={newsletterEmail}
+                      onChange={(e) => setNewsletterEmail(e.target.value)}
+                      disabled={isSubscribing}
+                      required
+                    />
+                    <button 
+                      type="submit"
+                      className="px-4 py-2 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white rounded-r-lg transition-all duration-200 flex items-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                      disabled={isSubscribing}
+                    >
+                      {isSubscribing ? (
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                      ) : (
+                        <CheckCircle className="w-4 h-4" />
+                      )}
+                      <span>{isSubscribing ? 'Subscribing...' : 'Subscribe'}</span>
+                    </button>
+                  </div>
+                  
+                  {/* Status Messages */}
+                  {newsletterStatus !== 'idle' && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className={`flex items-center gap-2 text-sm ${
+                        newsletterStatus === 'success' ? 'text-green-400' : 'text-red-400'
+                      }`}
+                    >
+                      {newsletterStatus === 'success' ? (
+                        <CheckCircle className="w-4 h-4" />
+                      ) : (
+                        <XCircle className="w-4 h-4" />
+                      )}
+                      <span>{newsletterMessage}</span>
+                    </motion.div>
+                  )}
+                </form>
               </div>
             </div>
           </div>
