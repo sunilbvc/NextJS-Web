@@ -4,6 +4,7 @@ import About from '../components/About'
 import Portfolio from '../components/Portfolio'
 import Testimonials from '../components/Testimonials'
 import ContactForm from '../components/ContactForm'
+import EmailSubscription from '../components/EmailSubscription'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 
@@ -17,6 +18,7 @@ export default function Home() {
       <Portfolio />
       <Testimonials />
       <ContactForm />
+      <EmailSubscription />
       <Footer />
     </main>
   )

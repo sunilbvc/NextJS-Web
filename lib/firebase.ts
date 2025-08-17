@@ -1,5 +1,5 @@
 import { initializeApp, getApps, FirebaseApp } from 'firebase/app';
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { getFirestore, collection, addDoc, query, where, getDocs, doc, updateDoc } from 'firebase/firestore';
 
 // Your Firebase configuration
 const firebaseConfig = {
@@ -37,6 +37,14 @@ export interface ContactFormData {
   createdAt: Date;
 }
 
+// Interface for email subscription data
+export interface EmailSubscription {
+  email: string;
+  subscribedAt: Date;
+  source?: string; // e.g., 'newsletter', 'footer', 'popup'
+  status: 'active' | 'unsubscribed';
+}
+
 // Function to submit contact form data to Firestore
 export async function submitContactForm(data: Omit<ContactFormData, 'createdAt'>) {
   try {
@@ -52,5 +60,63 @@ export async function submitContactForm(data: Omit<ContactFormData, 'createdAt'>
     return { success: true, id: docRef.id };
   } catch (error) {
     return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
+  }
+}
+
+// Function to subscribe email to newsletter
+export async function subscribeEmail(email: string, source: string = 'newsletter') {
+  try {
+    // Check if email already exists
+    const emailQuery = query(
+      collection(db, 'email_subscriptions'),
+      where('email', '==', email),
+      where('status', '==', 'active')
+    );
+    
+    const querySnapshot = await getDocs(emailQuery);
+    
+    if (!querySnapshot.empty) {
+      return { success: false, error: 'Email already subscribed' };
+    }
+    
+    // Add new subscription
+    const subscriptionData: EmailSubscription = {
+      email,
+      subscribedAt: new Date(),
+      source,
+      status: 'active'
+    };
+    
+    const docRef = await addDoc(collection(db, 'email_subscriptions'), subscriptionData);
+    
+    return { success: true, id: docRef.id };
+  } catch (error) {
+    return { success: false, error: error instanceof Error ? error.message : 'Subscription failed' };
+  }
+}
+
+// Function to unsubscribe email
+export async function unsubscribeEmail(email: string) {
+  try {
+    // Find and update the subscription
+    const emailQuery = query(
+      collection(db, 'email_subscriptions'),
+      where('email', '==', email),
+      where('status', '==', 'active')
+    );
+    
+    const querySnapshot = await getDocs(emailQuery);
+    
+    if (querySnapshot.empty) {
+      return { success: false, error: 'Email not found or already unsubscribed' };
+    }
+    
+    // Update status to unsubscribed
+    const docRef = doc(db, 'email_subscriptions', querySnapshot.docs[0].id);
+    await updateDoc(docRef, { status: 'unsubscribed' });
+    
+    return { success: true, message: 'Successfully unsubscribed' };
+  } catch (error) {
+    return { success: false, error: error instanceof Error ? error.message : 'Unsubscribe failed' };
   }
 } 

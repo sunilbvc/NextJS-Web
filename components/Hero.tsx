@@ -1,9 +1,14 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, Play, TrendingUp, Users, Globe } from 'lucide-react'
+import { ArrowRight, Play, TrendingUp, Users, Globe, CheckCircle, XCircle, Loader2 } from 'lucide-react'
+import { useState } from 'react'
 
 export default function Hero() {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
+
   const stats = [
     { icon: TrendingUp, value: '500+', label: 'Projects Completed' },
     { icon: Users, value: '200+', label: 'Happy Clients' },
@@ -12,6 +17,12 @@ export default function Hero() {
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    
+    console.log('🚀 Hero form submission started')
+    
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+    setErrorMessage('')
     
     const formData = new FormData(e.currentTarget)
     const data = {
@@ -23,33 +34,66 @@ export default function Hero() {
       message: formData.get('message') as string
     }
     
+    console.log('📝 Form data:', data)
+    
     try {
+      console.log('📡 Calling Firebase submitContactForm...')
+      
       // Import and use Firebase function
       const { submitContactForm } = await import('../lib/firebase')
       const firebaseResult = await submitContactForm(data)
       
+      console.log('✅ Firebase result:', firebaseResult)
+      
       if (firebaseResult.success) {
+        console.log('🎉 Firebase success, now calling email...')
+        
         // Now send to email (simple version)
         try {
+          console.log('📧 Importing email function...')
+          
           // Import simple email function
           const { sendEmailWithEmailJS } = await import('../lib/email')
           
-          // Send to email (this will log the data for now)
-          await sendEmailWithEmailJS(data)
+          console.log('📧 Calling sendEmailWithEmailJS...')
           
-          alert('Thank you! Your message has been sent successfully. We\'ll contact you soon!')
+          // Send to email (this will log the data for now)
+          const emailResult = await sendEmailWithEmailJS(data)
+          
+          console.log('📧 Email result:', emailResult)
+          
+          // Always show success if Firebase worked, regardless of email result
+          setSubmitStatus('success')
           e.currentTarget.reset()
           
         } catch (emailError) {
-          alert('Thank you! Your message has been sent successfully.')
+          console.log('⚠️ Email failed, but Firebase worked:', emailError)
+          // Still show success since Firebase worked
+          setSubmitStatus('success')
           e.currentTarget.reset()
         }
         
       } else {
-        alert('Error: ' + (firebaseResult.error || 'Something went wrong'))
+        console.log('❌ Firebase failed:', firebaseResult.error)
+        setSubmitStatus('error')
+        setErrorMessage(firebaseResult.error || 'Something went wrong')
       }
     } catch (error) {
-      alert('An unexpected error occurred. Please try again.')
+      console.log('💥 Exception occurred:', error)
+      console.log('💥 Error type:', typeof error)
+      console.log('💥 Error message:', error instanceof Error ? error.message : 'Unknown error')
+      
+      // Check if it's a Firebase error or something else
+      if (error instanceof Error && error.message.includes('Firebase')) {
+        setSubmitStatus('error')
+        setErrorMessage('Database connection failed. Please try again.')
+      } else {
+        setSubmitStatus('error')
+        setErrorMessage('An unexpected error occurred. Please try again.')
+      }
+    } finally {
+      console.log('🏁 Form submission finished')
+      setIsSubmitting(false)
     }
   }
 
@@ -188,11 +232,42 @@ export default function Hero() {
                 />
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
                 >
-                  Submit
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      Submitting...
+                    </>
+                  ) : (
+                    'Submit'
+                  )}
                 </button>
               </form>
+              
+              {/* Status Messages */}
+              {submitStatus !== 'idle' && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className={`mt-4 flex items-center justify-center gap-2 ${
+                    submitStatus === 'success' ? 'text-green-400' : 'text-red-400'
+                  }`}
+                >
+                  {submitStatus === 'success' ? (
+                    <CheckCircle className="w-5 h-5" />
+                  ) : (
+                    <XCircle className="w-5 h-5" />
+                  )}
+                  <span className="text-sm">
+                    {submitStatus === 'success' 
+                      ? 'Thank you! Your message has been sent successfully. We\'ll contact you soon!' 
+                      : errorMessage
+                    }
+                  </span>
+                </motion.div>
+              )}
             </div>
             
             {/* Floating Elements */}

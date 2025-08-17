@@ -121,7 +121,7 @@ export default function ContactForm() {
                   </div>
                   <div>
                     <p className="text-white font-medium">Phone</p>
-                    <p className="text-gray-300">+1 (555) 123-4567</p>
+                    <p className="text-gray-300">8104691455</p>
                   </div>
                 </div>
                 
@@ -141,7 +141,8 @@ export default function ContactForm() {
                   </div>
                   <div>
                     <p className="text-white font-medium">Address</p>
-                    <p className="text-gray-300">Sakinaka, Andheri East, Mumbai</p>
+                    <p className="text-gray-300">Andheri West, Mumbai<br />
+                      Maharashtra, India</p>
                   </div>
                 </div>
               </div>
