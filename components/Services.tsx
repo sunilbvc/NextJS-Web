@@ -13,7 +13,8 @@ import {
   Target,
   Users,
   Zap,
-  Globe
+  Globe,
+  ArrowRight
 } from 'lucide-react'
 
 export default function Services() {
@@ -95,152 +96,54 @@ export default function Services() {
   ]
 
   return (
-    <section id="services" className="section-padding bg-white">
+    <section id="services" className="py-16 sm:py-20 bg-gray-900">
       <div className="container-custom">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Our <span className="gradient-text">Services</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We offer comprehensive digital solutions that combine creative marketing strategies 
-            with cutting-edge technology to drive real business results.
-          </p>
-        </motion.div>
-
-        {/* Social Media Marketing Services */}
-        <div className="mb-20">
-          <motion.h3
+        <div className="text-center mb-12 sm:mb-16">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4"
+          >
+            Our <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">Services</span>
+          </motion.h2>
+          
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-3xl font-bold text-center mb-12"
+            className="text-lg text-gray-300 max-w-3xl mx-auto px-4 sm:px-0"
           >
-            Social Media Marketing
-          </motion.h3>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {socialMediaServices.map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-gradient-to-br from-white to-gray-50 p-6 rounded-xl shadow-lg card-hover border border-gray-100"
-              >
-                <div className="w-14 h-14 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center mb-4">
-                  <service.icon className="w-7 h-7 text-white" />
-                </div>
-                <h4 className="text-xl font-bold mb-3">{service.title}</h4>
-                <p className="text-gray-600 mb-4">{service.description}</p>
-                <ul className="space-y-2">
-                  {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center text-sm text-gray-600">
-                      <div className="w-2 h-2 bg-primary-500 rounded-full mr-2"></div>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
-          </div>
+            We offer comprehensive digital solutions to help your business grow and succeed in the digital world.
+          </motion.p>
         </div>
 
-        {/* Web Development Services */}
-        <div className="mb-20">
-          <motion.h3
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="text-3xl font-bold text-center mb-12"
-          >
-            Web Development
-          </motion.h3>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {webDevelopmentServices.map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-gradient-to-br from-white to-gray-50 p-6 rounded-xl shadow-lg card-hover border border-gray-100"
-              >
-                <div className="w-14 h-14 bg-gradient-to-br from-secondary-500 to-primary-500 rounded-lg flex items-center justify-center mb-4">
-                  <service.icon className="w-7 h-7 text-white" />
-                </div>
-                <h4 className="text-xl font-bold mb-3">{service.title}</h4>
-                <p className="text-gray-600 mb-4">{service.description}</p>
-                <ul className="space-y-2">
-                  {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center text-sm text-gray-600">
-                      <div className="w-2 h-2 bg-secondary-500 rounded-full mr-2"></div>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 px-4 sm:px-0">
+          {socialMediaServices.map((service, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50 hover:border-pink-500/50 transition-all duration-300 hover:transform hover:scale-105 group"
+            >
+              <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                <service.icon className="w-6 h-6 text-white" />
+              </div>
+              
+              <h3 className="text-lg font-semibold text-white mb-3">{service.title}</h3>
+              <p className="text-gray-300 text-sm leading-relaxed mb-4">{service.description}</p>
+              
+              <button className="text-pink-400 hover:text-pink-300 font-medium text-sm transition-colors duration-200 flex items-center group">
+                Learn More
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
+              </button>
+            </motion.div>
+          ))}
         </div>
-
-        {/* Additional Services */}
-        <div>
-          <motion.h3
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="text-3xl font-bold text-center mb-12"
-          >
-            Additional Services
-          </motion.h3>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {additionalServices.map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-gradient-to-br from-white to-gray-50 p-6 rounded-xl shadow-lg card-hover border border-gray-100 text-center"
-              >
-                <div className="w-14 h-14 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                  <service.icon className="w-7 h-7 text-white" />
-                </div>
-                <h4 className="text-xl font-bold mb-3">{service.title}</h4>
-                <p className="text-gray-600">{service.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="text-center mt-16"
-        >
-          <p className="text-lg text-gray-600 mb-6">
-            Ready to transform your digital presence?
-          </p>
-          <a href="#contact" className="btn-primary">
-            Get Your Free Consultation
-          </a>
-        </motion.div>
       </div>
     </section>
   )

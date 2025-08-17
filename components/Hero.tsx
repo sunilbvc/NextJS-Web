@@ -146,13 +146,13 @@ export default function Hero() {
   return (
     <section id="home" className="pt-20 pb-16 bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900 text-white">
       <div className="container-custom">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-8"
+            className="space-y-6 lg:space-y-8 px-4 sm:px-0"
           >
             <div className="space-y-4">
               <motion.div
@@ -165,11 +165,11 @@ export default function Hero() {
                 Award-Winning Digital Agency
               </motion.div>
               
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 India's Top <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">Web Design</span> & Shopify Development Agency
               </h1>
               
-              <p className="text-xl text-gray-300 leading-relaxed">
+              <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">
                 Build, Grow, and Optimize Your Online Business with our expert team. 
                 We craft compelling digital experiences that drive engagement, 
                 boost conversions, and accelerate your business growth.
@@ -202,15 +202,15 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="grid grid-cols-3 gap-6 pt-8"
+              className="grid grid-cols-3 gap-4 sm:gap-6 pt-6 lg:pt-8"
             >
               {stats.map((stat, index) => (
                 <div key={index} className="text-center">
-                  <div className="flex items-center justify-center w-12 h-12 bg-pink-500/20 rounded-lg mx-auto mb-2 border border-pink-500/30">
-                    <stat.icon className="w-6 h-6 text-pink-400" />
+                  <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-pink-500/20 rounded-lg mx-auto mb-2 border border-pink-500/30">
+                    <stat.icon className="w-5 h-5 sm:w-6 sm:h-6 text-pink-400" />
                   </div>
-                  <div className="text-2xl font-bold text-white">{stat.value}</div>
-                  <div className="text-sm text-gray-300">{stat.label}</div>
+                  <div className="text-xl sm:text-2xl font-bold text-white">{stat.value}</div>
+                  <div className="text-xs sm:text-sm text-gray-300">{stat.label}</div>
                 </div>
               ))}
             </motion.div>
@@ -221,11 +221,11 @@ export default function Hero() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
+            className="relative px-4 sm:px-0"
           >
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 shadow-2xl">
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-white/20 shadow-2xl">
               <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold mb-2">NEW PROJECT IN MIND?</h3>
+                <h3 className="text-xl sm:text-2xl font-bold mb-2">NEW PROJECT IN MIND?</h3>
                 <p className="text-gray-300 text-sm">Get your free quote today</p>
               </div>
               
