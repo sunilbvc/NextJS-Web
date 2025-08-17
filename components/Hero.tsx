@@ -87,44 +87,24 @@ export default function Hero() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <button
-                type="submit"
-                className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105"
+              <motion.a
+                href="#contact"
+                className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                Get Started
-              </button>
+                <span>Get a Quote</span>
+                <ArrowRight className="w-5 h-5" />
+              </motion.a>
               
-              {/* Test Firebase Button */}
-              <button
-                type="button"
-                onClick={async () => {
-                  try {
-                    const firebaseModule = await import('../lib/firebase')
-                    
-                    if (firebaseModule.testFirebase) {
-                      const result = firebaseModule.testFirebase()
-                    }
-                    
-                    // Test with sample data
-                    const testData = {
-                      name: 'Test User',
-                      email: 'test@example.com',
-                      phone: '1234567890',
-                      company: 'Test Company',
-                      service: 'Web Development',
-                      message: 'Test message'
-                    }
-                    
-                    const submitResult = await firebaseModule.submitContactForm(testData)
-                    
-                  } catch (error) {
-                    console.error('❌ Firebase test failed:', error)
-                  }
-                }}
-                className="bg-gradient-to-r from-red-600 to-orange-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-red-700 hover:to-orange-700 transition-all duration-300 transform hover:scale-105"
+              <motion.button
+                className="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                Call Now
-              </button>
+                <Play className="w-5 h-5" />
+                <span>Explore Services</span>
+              </motion.button>
             </div>
 
             {/* Stats */}
