@@ -1,4 +1,5 @@
 import Hero from '../components/Hero'
+import BrandsSlider from '../components/BrandsSlider'
 import Services from '../components/Services'
 import About from '../components/About'
 import Portfolio from '../components/Portfolio'
@@ -13,6 +14,7 @@ export default function Home() {
     <main className="min-h-screen">
       <Header />
       <Hero />
+      <BrandsSlider />
       <Services />
       <About />
       <Portfolio />
