@@ -8,6 +8,37 @@ export default function Hero() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
+  
+  // Form data state for controlled inputs
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    company: '',
+    service: '',
+    message: ''
+  })
+
+  // Handle input changes
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
+  // Reset form function
+  const resetForm = () => {
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      company: '',
+      service: '',
+      message: ''
+    })
+  }
 
   const stats = [
     { icon: TrendingUp, value: '500+', label: 'Projects Completed' },
@@ -20,18 +51,20 @@ export default function Hero() {
     
     console.log('🚀 Hero form submission started')
     
+    // Store form reference before async operations
+    const form = e.currentTarget
+    
     setIsSubmitting(true)
     setSubmitStatus('idle')
     setErrorMessage('')
     
-    const formData = new FormData(e.currentTarget)
     const data = {
-      name: formData.get('name') as string,
-      email: formData.get('email') as string,
-      phone: formData.get('phone') as string,
-      company: formData.get('company') as string,
-      service: formData.get('service') as string,
-      message: formData.get('message') as string
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      company: formData.company,
+      service: formData.service,
+      message: formData.message
     }
     
     console.log('📝 Form data:', data)
@@ -64,13 +97,17 @@ export default function Hero() {
           
           // Always show success if Firebase worked, regardless of email result
           setSubmitStatus('success')
-          e.currentTarget.reset()
+          
+          // Reset form using React state
+          resetForm()
           
         } catch (emailError) {
           console.log('⚠️ Email failed, but Firebase worked:', emailError)
           // Still show success since Firebase worked
           setSubmitStatus('success')
-          e.currentTarget.reset()
+          
+          // Reset form using React state
+          resetForm()
         }
         
       } else {
@@ -82,11 +119,20 @@ export default function Hero() {
       console.log('💥 Exception occurred:', error)
       console.log('💥 Error type:', typeof error)
       console.log('💥 Error message:', error instanceof Error ? error.message : 'Unknown error')
+      console.log('💥 Error stack:', error instanceof Error ? error.stack : 'No stack trace')
       
-      // Check if it's a Firebase error or something else
-      if (error instanceof Error && error.message.includes('Firebase')) {
-        setSubmitStatus('error')
-        setErrorMessage('Database connection failed. Please try again.')
+      // More specific error handling
+      if (error instanceof Error) {
+        if (error.message.includes('Firebase')) {
+          setSubmitStatus('error')
+          setErrorMessage('Database connection failed. Please try again.')
+        } else if (error.message.includes('import')) {
+          setSubmitStatus('error')
+          setErrorMessage('Module loading failed. Please refresh the page.')
+        } else {
+          setSubmitStatus('error')
+          setErrorMessage(`Error: ${error.message}`)
+        }
       } else {
         setSubmitStatus('error')
         setErrorMessage('An unexpected error occurred. Please try again.')
@@ -189,6 +235,8 @@ export default function Hero() {
                   type="text"
                   placeholder="Name"
                   required
+                  value={formData.name}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                 />
                 <input
@@ -196,6 +244,8 @@ export default function Hero() {
                   type="email"
                   placeholder="Email"
                   required
+                  value={formData.email}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                 />
                 <input
@@ -203,6 +253,8 @@ export default function Hero() {
                   type="tel"
                   placeholder="Phone"
                   required
+                  value={formData.phone}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                 />
                 <input
@@ -210,11 +262,15 @@ export default function Hero() {
                   type="text"
                   placeholder="Company"
                   required
+                  value={formData.company}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                 />
                 <select 
                   name="service"
                   required
+                  value={formData.service}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                 >
                   <option value="">Select Service</option>
@@ -228,6 +284,8 @@ export default function Hero() {
                   placeholder="Message"
                   required
                   rows={3}
+                  value={formData.message}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent resize-none"
                 />
                 <button
