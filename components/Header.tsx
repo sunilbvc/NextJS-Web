@@ -13,7 +13,6 @@ export default function Header() {
     { name: 'Pricing', href: '#pricing' },
     { name: 'About', href: '#about' },
     { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Blog', href: '/blog' },
     { name: 'Let\'s Connect', href: '#lets-connect' },
     { name: 'Contact', href: '#contact' },
   ]
@@ -21,9 +20,9 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900/95 backdrop-blur-md shadow-lg border-b border-gray-800">
       <div className="container-custom">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center h-20">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-3 mr-16">
             <div className="w-10 h-10 bg-gradient-to-br from-pink-500 to-purple-500 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-xl">D</span>
             </div>
@@ -34,7 +33,7 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-8 flex-1 justify-center">
             {navigation.map((item) => (
               item.href.startsWith('#') ? (
                 <a
@@ -57,7 +56,7 @@ export default function Header() {
           </nav>
 
           {/* Right Side - Contact Info + CTA Button */}
-          <div className="flex items-center space-x-8">
+          <div className="flex items-center space-x-8 ml-auto">
             {/* Contact Info */}
             <div className="hidden xl:flex items-center space-x-6">
               <div className="flex items-center space-x-2 text-sm text-gray-400">
