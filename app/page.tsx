@@ -8,6 +8,7 @@ import ContactForm from '../components/ContactForm'
 import EmailSubscription from '../components/EmailSubscription'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
+import LetsConnect from '../components/LetsConnect'
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
       <Testimonials />
       <ContactForm />
       <EmailSubscription />
+      <LetsConnect />
       <Footer />
     </main>
   )

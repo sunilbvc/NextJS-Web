@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Menu, X, Phone, Mail } from 'lucide-react'
+import Link from 'next/link'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -11,6 +12,8 @@ export default function Header() {
     { name: 'Services', href: '#services' },
     { name: 'About', href: '#about' },
     { name: 'Portfolio', href: '#portfolio' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Let\'s Connect', href: '#lets-connect' },
     { name: 'Contact', href: '#contact' },
   ]
 
@@ -32,13 +35,23 @@ export default function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-gray-300 hover:text-pink-400 font-medium transition-colors duration-200"
-              >
-                {item.name}
-              </a>
+              item.href.startsWith('#') ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-gray-300 hover:text-pink-400 font-medium transition-colors duration-200"
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="text-gray-300 hover:text-pink-400 font-medium transition-colors duration-200"
+                >
+                  {item.name}
+                </Link>
+              )
             ))}
           </nav>
 
@@ -74,11 +87,12 @@ export default function Header() {
           </button>
         </div>
 
-                  {/* Mobile Navigation */}
-          {isMenuOpen && (
-            <div className="md:hidden py-4 border-t border-gray-800">
-              <nav className="flex flex-col space-y-4">
-                {navigation.map((item) => (
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="md:hidden py-4 border-t border-gray-800">
+            <nav className="flex flex-col space-y-4">
+              {navigation.map((item) => (
+                item.href.startsWith('#') ? (
                   <a
                     key={item.name}
                     href={item.href}
@@ -87,15 +101,25 @@ export default function Header() {
                   >
                     {item.name}
                   </a>
-                ))}
-                <div className="pt-4">
-                  <a href="#contact" className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl w-full text-center block">
-                    Get Started
-                  </a>
-                </div>
-              </nav>
-            </div>
-          )}
+                ) : (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="text-gray-300 hover:text-pink-400 font-medium transition-colors duration-200"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                )
+              ))}
+              <div className="pt-4">
+                <a href="#contact" className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl w-full text-center block">
+                  Get Started
+                </a>
+              </div>
+            </nav>
+          </div>
+        )}
       </div>
     </header>
   )

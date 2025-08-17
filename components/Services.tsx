@@ -104,9 +104,9 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-white"
           >
-            Our <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">Services</span>
+            Our Services
           </motion.h2>
           
           <motion.p

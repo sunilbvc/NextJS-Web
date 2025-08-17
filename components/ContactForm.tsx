@@ -116,8 +116,6 @@ export default function ContactForm() {
             className="space-y-6 px-4 sm:px-0"
           >
             <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-white mb-6">Let's Connect</h3>
-              
               <div className="space-y-4">
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-pink-500/20 rounded-lg flex items-center justify-center border border-pink-500/30">
@@ -146,6 +144,41 @@ export default function ContactForm() {
                   <div>
                     <h4 className="text-white font-semibold mb-1">Address</h4>
                     <p className="text-gray-300">Andheri West, Mumbai<br />Maharashtra, India</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Additional Benefits with Tick Marks */}
+              <div className="pt-6 border-t border-gray-700/50">
+                <h4 className="text-lg font-semibold text-white mb-4">Why Contact Us?</h4>
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                    <span className="text-gray-300 text-sm">Free consultation and project assessment</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                    <span className="text-gray-300 text-sm">Quick response within 2 hours</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                    <span className="text-gray-300 text-sm">Custom solutions for your business</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                    <span className="text-gray-300 text-sm">Transparent pricing and timelines</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                    <span className="text-gray-300 text-sm">Ongoing support after project completion</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                    <span className="text-gray-300 text-sm">Expert team with 5+ years experience</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                    <span className="text-gray-300 text-sm">No commitment required for initial discussion</span>
                   </div>
                 </div>
               </div>
