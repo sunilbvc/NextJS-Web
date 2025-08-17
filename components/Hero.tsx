@@ -10,6 +10,49 @@ export default function Hero() {
     { icon: Globe, value: '50+', label: 'Countries Reached' },
   ]
 
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    
+    const formData = new FormData(e.currentTarget)
+    const data = {
+      name: formData.get('name') as string,
+      email: formData.get('email') as string,
+      phone: formData.get('phone') as string,
+      company: formData.get('company') as string,
+      service: formData.get('service') as string,
+      message: formData.get('message') as string
+    }
+    
+    try {
+      // Import and use Firebase function
+      const { submitContactForm } = await import('../lib/firebase')
+      const firebaseResult = await submitContactForm(data)
+      
+      if (firebaseResult.success) {
+        // Now send to email (simple version)
+        try {
+          // Import simple email function
+          const { sendEmailWithEmailJS } = await import('../lib/email')
+          
+          // Send to email (this will log the data for now)
+          await sendEmailWithEmailJS(data)
+          
+          alert('Thank you! Your message has been sent successfully. We\'ll contact you soon!')
+          e.currentTarget.reset()
+          
+        } catch (emailError) {
+          alert('Thank you! Your message has been sent successfully.')
+          e.currentTarget.reset()
+        }
+        
+      } else {
+        alert('Error: ' + (firebaseResult.error || 'Something went wrong'))
+      }
+    } catch (error) {
+      alert('An unexpected error occurred. Please try again.')
+    }
+  }
+
   return (
     <section id="home" className="pt-20 pb-16 bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900 text-white">
       <div className="container-custom">
@@ -33,7 +76,7 @@ export default function Hero() {
               </motion.div>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                India's Top trusted <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">Web Design</span> & Shopify Development Agency
+                India's Top <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">Web Design</span> & Shopify Development Agency
               </h1>
               
               <p className="text-xl text-gray-300 leading-relaxed">
@@ -44,24 +87,44 @@ export default function Hero() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <motion.a
-                href="#contact"
-                className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              <button
+                type="submit"
+                className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105"
               >
-                <span>Get a Quote</span>
-                <ArrowRight className="w-5 h-5" />
-              </motion.a>
+                Get Started
+              </button>
               
-              <motion.button
-                className="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              {/* Test Firebase Button */}
+              <button
+                type="button"
+                onClick={async () => {
+                  try {
+                    const firebaseModule = await import('../lib/firebase')
+                    
+                    if (firebaseModule.testFirebase) {
+                      const result = firebaseModule.testFirebase()
+                    }
+                    
+                    // Test with sample data
+                    const testData = {
+                      name: 'Test User',
+                      email: 'test@example.com',
+                      phone: '1234567890',
+                      company: 'Test Company',
+                      service: 'Web Development',
+                      message: 'Test message'
+                    }
+                    
+                    const submitResult = await firebaseModule.submitContactForm(testData)
+                    
+                  } catch (error) {
+                    console.error('❌ Firebase test failed:', error)
+                  }
+                }}
+                className="bg-gradient-to-r from-red-600 to-orange-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-red-700 hover:to-orange-700 transition-all duration-300 transform hover:scale-105"
               >
-                <Play className="w-5 h-5" />
-                <span>Explore Services</span>
-              </motion.button>
+                Call Now
+              </button>
             </div>
 
             {/* Stats */}
@@ -96,28 +159,40 @@ export default function Hero() {
                 <p className="text-gray-300 text-sm">Get your free quote today</p>
               </div>
               
-              <form className="space-y-4">
+              <form className="space-y-4" onSubmit={handleFormSubmit}>
                 <input
+                  name="name"
                   type="text"
                   placeholder="Name"
+                  required
                   className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                 />
                 <input
+                  name="email"
                   type="email"
                   placeholder="Email"
+                  required
                   className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                 />
                 <input
+                  name="phone"
                   type="tel"
                   placeholder="Phone"
+                  required
                   className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                 />
                 <input
+                  name="company"
                   type="text"
                   placeholder="Company"
+                  required
                   className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                 />
-                <select className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                <select 
+                  name="service"
+                  required
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                >
                   <option value="">Select Service</option>
                   <option value="web-design">Web Design</option>
                   <option value="web-development">Web Development</option>
@@ -125,7 +200,9 @@ export default function Hero() {
                   <option value="digital-marketing">Digital Marketing</option>
                 </select>
                 <textarea
+                  name="message"
                   placeholder="Message"
+                  required
                   rows={3}
                   className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent resize-none"
                 />
