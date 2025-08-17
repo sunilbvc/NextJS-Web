@@ -13,7 +13,6 @@ export default function Header() {
     { name: 'Pricing', href: '#pricing' },
     { name: 'About', href: '#about' },
     { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Let\'s Connect', href: '#lets-connect' },
     { name: 'Contact', href: '#contact' },
   ]
 
@@ -27,7 +26,7 @@ export default function Header() {
               <span className="text-white font-bold text-xl">D</span>
             </div>
             <div>
-              <h1 className="text-xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">Devnest Digital</h1>
+              <h1 className="text-xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent whitespace-nowrap">Devnest Digital</h1>
               <p className="text-xs text-gray-400">Digital Excellence</p>
             </div>
           </div>

@@ -12,6 +12,7 @@ import ContactForm from '../components/ContactForm'
 import EmailSubscription from '../components/EmailSubscription'
 import Footer from '../components/Footer'
 import LetsConnect from '../components/LetsConnect'
+import WhatsAppChat from '../components/WhatsAppChat'
 
 export default function Home() {
   return (
@@ -30,6 +31,7 @@ export default function Home() {
       <EmailSubscription />
       <LetsConnect />
       <Footer />
+      <WhatsAppChat />
     </main>
   )
 } 
