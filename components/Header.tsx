@@ -17,16 +17,16 @@ export default function Header() {
   ]
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900/95 backdrop-blur-md shadow-lg border-b border-gray-800">
-      <div className="container-custom">
-        <div className="flex items-center h-20">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900/95 backdrop-blur-md shadow-lg border-b border-gray-800 overflow-hidden">
+      <div className="container-custom px-4">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex items-center space-x-3 mr-16">
-            <div className="w-10 h-10 bg-gradient-to-br from-pink-500 to-purple-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">D</span>
+          <div className="flex items-center space-x-2 lg:space-x-3 flex-shrink-0">
+            <div className="w-8 h-8 lg:w-10 lg:h-10 bg-gradient-to-br from-pink-500 to-purple-500 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-sm lg:text-xl">D</span>
             </div>
-            <div>
-              <h1 className="text-xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent whitespace-nowrap">Devnest Digital</h1>
+            <div className="hidden sm:block">
+              <h1 className="text-sm lg:text-xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent whitespace-nowrap">Devnest Digital</h1>
               <p className="text-xs text-gray-400">Digital Excellence</p>
             </div>
           </div>
@@ -55,8 +55,8 @@ export default function Header() {
           </nav>
 
           {/* Right Side - Contact Info + CTA Button */}
-          <div className="flex items-center space-x-8 ml-auto">
-            {/* Contact Info */}
+          <div className="flex items-center space-x-2 lg:space-x-4">
+            {/* Contact Info - Hidden on small screens */}
             <div className="hidden xl:flex items-center space-x-6">
               <div className="flex items-center space-x-2 text-sm text-gray-400">
                 <Phone className="w-4 h-4" />
@@ -68,22 +68,26 @@ export default function Header() {
               </div>
             </div>
 
-            {/* CTA Button */}
+            {/* CTA Button - Hidden on small screens */}
             <div className="hidden md:block">
-              <a href="#contact" className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl whitespace-nowrap">
+              <a href="#contact" className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold py-2 lg:py-3 px-4 lg:px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl whitespace-nowrap text-sm lg:text-base">
                 Get Started
               </a>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button - Always visible on small screens */}
             <button
-              className="md:hidden p-2"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="lg:hidden p-2 text-white hover:bg-white/10 rounded-lg transition-colors duration-200 border border-white/20 flex-shrink-0"
+              onClick={() => {
+                console.log('Mobile menu clicked! Current state:', isMenuOpen)
+                setIsMenuOpen(!isMenuOpen)
+              }}
+              aria-label="Toggle mobile menu"
             >
               {isMenuOpen ? (
-                <X className="w-6 h-6" />
+                <X className="w-5 h-5 lg:w-6 lg:h-6" />
               ) : (
-                <Menu className="w-6 h-6" />
+                <Menu className="w-5 h-5 lg:w-6 lg:h-6" />
               )}
             </button>
           </div>
@@ -91,7 +95,7 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-800">
+          <div className="lg:hidden py-4 border-t border-gray-800">
             <nav className="flex flex-col space-y-4">
               {navigation.map((item) => (
                 item.href.startsWith('#') ? (
