@@ -56,73 +56,59 @@ const brands = [
 
 export default function BrandsSlider() {
   return (
-    <section className="py-12 sm:py-16 bg-gray-900/50">
+    <section className="py-8 overflow-hidden">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-8 sm:mb-12"
+          className="text-center mb-8"
         >
-          <h3 className="text-lg sm:text-xl text-gray-400 font-medium mb-2">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-300 mb-4">
             Trusted by Leading Brands
-          </h3>
-          <p className="text-sm text-gray-500">
-            We've helped these companies achieve digital excellence
+          </h2>
+          <p className="text-gray-400 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto">
+            We've helped businesses of all sizes achieve their digital goals
           </p>
         </motion.div>
-      </div>
-
-      {/* Full width slider container */}
-      <div className="relative overflow-hidden w-full">
-        {/* Gradient overlays for smooth fade effect */}
-        <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-gray-900/50 to-transparent z-10 pointer-events-none"></div>
-        <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-gray-900/50 to-transparent z-10 pointer-events-none"></div>
         
-        {/* Infinite scrolling container */}
-        <div className="flex animate-scroll">
-          {/* First set of brands */}
-          {brands.map((brand) => (
-            <div
-              key={brand.id}
-              className="flex-shrink-0 mx-6 sm:mx-8 lg:mx-12"
-            >
-              <div className="group">
-                <div className="w-24 sm:w-28 lg:w-32 h-12 sm:h-14 lg:h-16 bg-white/5 backdrop-blur-sm rounded-lg border border-gray-700/30 flex items-center justify-center p-3 transition-all duration-300 group-hover:bg-white/10 group-hover:border-gray-600/50 group-hover:scale-105">
+        <div className="relative">
+          <div className="flex animate-scroll">
+            {/* First set of logos */}
+            {brands.map((brand) => (
+              <div
+                key={brand.id}
+                className="flex-shrink-0 mx-8 lg:mx-12 flex items-center justify-center"
+                style={{ width: '120px', height: '80px' }}
+              >
+                <div className="w-full h-full bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center p-4 border border-white/20 hover:bg-white/20 transition-all duration-300 group">
                   <img
                     src={brand.logo}
                     alt={brand.alt}
                     className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
                   />
                 </div>
-                <p className="text-xs text-gray-500 text-center mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  {brand.name}
-                </p>
               </div>
-            </div>
-          ))}
-          
-          {/* Duplicate set for seamless infinite loop */}
-          {brands.map((brand) => (
-            <div
-              key={`${brand.id}-duplicate`}
-              className="flex-shrink-0 mx-6 sm:mx-8 lg:mx-12"
-            >
-              <div className="group">
-                <div className="w-24 sm:w-28 lg:w-32 h-12 sm:h-14 lg:h-16 bg-white/5 backdrop-blur-sm rounded-lg border border-gray-700/30 flex items-center justify-center p-3 transition-all duration-300 group-hover:bg-white/10 group-hover:border-gray-600/50 group-hover:scale-105">
+            ))}
+            
+            {/* Duplicate set for seamless loop */}
+            {brands.map((brand) => (
+              <div
+                key={`duplicate-${brand.id}`}
+                className="flex-shrink-0 mx-8 lg:mx-12 flex items-center justify-center"
+                style={{ width: '120px', height: '80px' }}
+              >
+                <div className="w-full h-full bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center p-4 border border-white/20 hover:bg-white/20 transition-all duration-300 group">
                   <img
                     src={brand.logo}
                     alt={brand.alt}
                     className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
                   />
                 </div>
-                <p className="text-xs text-gray-500 text-center mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  {brand.name}
-                </p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
