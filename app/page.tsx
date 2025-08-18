@@ -23,7 +23,7 @@ export default function Home() {
       <Pricing />
       <WhyChooseUs />
       <TechnologyStack />
-      <BrandsSlider />
+      {/* <BrandsSlider /> */}
       <About />
       <Portfolio />
       <Testimonials />
