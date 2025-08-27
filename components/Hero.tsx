@@ -166,7 +166,7 @@ export default function Hero() {
               </motion.div>
               
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                India's Top <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">Web Design</span> & Shopify Development Agency
+                India's Top and Trusted <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">Web Design</span> & Shopify Development Agency
               </h1>
               
               <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">

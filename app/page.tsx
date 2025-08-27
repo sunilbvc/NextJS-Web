@@ -6,8 +6,8 @@ import WhyChooseUs from '../components/WhyChooseUs'
 import TechnologyStack from '../components/TechnologyStack'
 import BrandsSlider from '../components/BrandsSlider'
 import About from '../components/About'
-import Portfolio from '../components/Portfolio'
-import Testimonials from '../components/Testimonials'
+// import Portfolio from '../components/Portfolio'
+// import Testimonials from '../components/Testimonials'
 import ContactForm from '../components/ContactForm'
 import EmailSubscription from '../components/EmailSubscription'
 import Footer from '../components/Footer'
@@ -25,8 +25,8 @@ export default function Home() {
       <TechnologyStack />
       {/* <BrandsSlider /> */}
       <About />
-      <Portfolio />
-      <Testimonials />
+      {/* <Portfolio /> */}
+      {/* <Testimonials /> */}
       <ContactForm />
       <EmailSubscription />
       <LetsConnect />
