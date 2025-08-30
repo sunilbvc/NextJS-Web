@@ -18,6 +18,7 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Header />
+      <ContactForm />
       <Hero />
       <Services />
       <Pricing />
@@ -27,7 +28,6 @@ export default function Home() {
       <About />
       {/* <Portfolio /> */}
       {/* <Testimonials /> */}
-      <ContactForm />
       <EmailSubscription />
       <LetsConnect />
       <Footer />
