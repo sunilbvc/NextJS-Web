@@ -66,16 +66,6 @@ export default function Pricing() {
     }
   ]
 
-  const scrollToContact = () => {
-    const contactSection = document.getElementById('contact')
-    if (contactSection) {
-      contactSection.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      })
-    }
-  }
-
   return (
     <section id="pricing" className="py-20 bg-gray-50">
       <div className="container-custom">
@@ -163,15 +153,13 @@ export default function Pricing() {
                 </ul>
 
                 {/* CTA Button */}
-                <button 
-                  onClick={scrollToContact}
-                  className={`w-full py-3 px-6 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 ${
-                    plan.popular
-                      ? 'bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white shadow-lg'
-                      : 'bg-gray-100 hover:bg-gray-200 text-gray-800'
-                  }`}>
+                <button className={`w-full py-3 px-6 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 ${
+                  plan.popular
+                    ? 'bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white shadow-lg'
+                    : 'bg-gray-100 hover:bg-gray-200 text-gray-800'
+                }`}>
                   <span className="flex items-center justify-center">
-                    Choose your plan
+                    Choose this plan
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </span>
                 </button>
