@@ -92,7 +92,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
-                    Devnest Digital
+                    Digi Solence
                   </h3>
                   <p className="text-xs text-gray-400">Digital Excellence</p>
                 </div>
@@ -234,7 +234,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm">
-              © {currentYear} Devnest Digital. All rights reserved.
+              © {currentYear} Digi Solence. All rights reserved.
             </div>
             
             <div className="flex items-center space-x-6 text-sm text-gray-400">

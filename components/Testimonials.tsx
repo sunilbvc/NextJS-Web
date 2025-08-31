@@ -12,7 +12,7 @@ export default function Testimonials() {
       company: 'TechStart Inc.',
       image: '/api/placeholder/80/80',
       rating: 5,
-      content: 'Devnest Digital transformed our online presence completely. Their social media strategy increased our engagement by 300% and the new website has improved our conversion rate significantly. The team is professional, responsive, and truly cares about our success.',
+      content: 'Digi Solence transformed our online presence completely. Their social media strategy increased our engagement by 300% and the new website has improved our conversion rate significantly. The team is professional, responsive, and truly cares about our success.',
       results: ['+300% Social Media Engagement', '+180% Conversion Rate', '+250% Website Traffic']
     },
     {
@@ -22,7 +22,7 @@ export default function Testimonials() {
       company: 'FitnessPro',
       image: '/api/placeholder/80/80',
       rating: 5,
-      content: 'Working with Devnest Digital has been a game-changer for our fitness brand. Their influencer marketing campaign helped us reach millions of potential customers and our brand awareness has skyrocketed. Highly recommended!',
+      content: 'Working with Digi Solence has been a game-changer for our fitness brand. Their influencer marketing campaign helped us reach millions of potential customers and our brand awareness has skyrocketed. Highly recommended!',
       results: ['+500% Brand Awareness', '+400% Social Reach', '+280% Sales Growth']
     },
     {
@@ -32,7 +32,7 @@ export default function Testimonials() {
       company: 'RestaurantHub',
       image: '/api/placeholder/80/80',
       rating: 5,
-      content: 'The team at Devnest Digital built us an incredible booking platform that has revolutionized how we manage reservations. The user experience is seamless and our customers love it. Our revenue has increased by 160% since launch.',
+      content: 'The team at Digi Solence built us an incredible booking platform that has revolutionized how we manage reservations. The user experience is seamless and our customers love it. Our revenue has increased by 160% since launch.',
       results: ['+160% Revenue Growth', '+220% Booking Rate', '4.8/5 Customer Rating']
     },
     {
@@ -42,7 +42,7 @@ export default function Testimonials() {
       company: 'GreenEnergy Solutions',
       image: '/api/placeholder/80/80',
       rating: 5,
-      content: 'Devnest Digital delivered an exceptional mobile app that exceeded all our expectations. The progressive web app technology they used ensures excellent performance across all devices. Our user retention has improved dramatically.',
+      content: 'Digi Solence delivered an exceptional mobile app that exceeded all our expectations. The progressive web app technology they used ensures excellent performance across all devices. Our user retention has improved dramatically.',
       results: ['+400% App Downloads', '+180% User Retention', '+150% Market Share']
     },
     {
@@ -52,7 +52,7 @@ export default function Testimonials() {
       company: 'FashionForward',
       image: '/api/placeholder/80/80',
       rating: 5,
-      content: 'The influencer marketing campaign by Devnest Digital was absolutely phenomenal. They connected us with the perfect influencers and the results were beyond our wildest dreams. Our social media presence is now industry-leading.',
+      content: 'The influencer marketing campaign by Digi Solence was absolutely phenomenal. They connected us with the perfect influencers and the results were beyond our wildest dreams. Our social media presence is now industry-leading.',
       results: ['+350% Brand Awareness', '+500% Social Reach', '+280% Sales Conversion']
     },
     {
@@ -62,7 +62,7 @@ export default function Testimonials() {
       company: 'EduTech Innovations',
       image: '/api/placeholder/80/80',
       rating: 5,
-      content: 'Devnest Digital\'s content marketing strategy has positioned us as thought leaders in the education technology space. Our lead generation has increased by 280% and our brand authority has grown significantly.',
+      content: 'Digi Solence\'s content marketing strategy has positioned us as thought leaders in the education technology space. Our lead generation has increased by 280% and our brand authority has grown significantly.',
       results: ['+280% Lead Generation', '+320% Content Engagement', '+190% Brand Authority']
     }
   ]
@@ -83,7 +83,7 @@ export default function Testimonials() {
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Don't just take our word for it. Here's what our clients have to say 
-            about their experience working with Devnest Digital.
+            about their experience working with Digi Solence.
           </p>
         </motion.div>
 

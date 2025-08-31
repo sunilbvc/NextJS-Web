@@ -24,7 +24,7 @@ export default function Header() {
               <span className="text-white font-bold text-sm lg:text-xl">D</span>
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-sm lg:text-xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent whitespace-nowrap">Devnest Digital</h1>
+              <h1 className="text-sm lg:text-xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent whitespace-nowrap">Digi Solence</h1>
               <p className="text-xs text-gray-400">Digital Excellence</p>
             </div>
           </div>

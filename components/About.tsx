@@ -71,7 +71,7 @@ export default function About() {
           >
             <div className="inline-flex items-center px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-medium">
               <span className="w-2 h-2 bg-primary-600 rounded-full mr-2"></span>
-              About Devnest Digital
+              About Digi Solence
             </div>
             
             <h2 className="text-4xl md:text-5xl font-bold leading-tight">
@@ -79,7 +79,7 @@ export default function About() {
             </h2>
             
             <p className="text-xl text-gray-600 leading-relaxed">
-              Founded in 2019, Devnest Digital has been at the forefront of digital transformation, 
+              Founded in 2019, Digi Solence has been at the forefront of digital transformation, 
               helping businesses of all sizes establish powerful online presences and achieve remarkable growth.
             </p>
             
