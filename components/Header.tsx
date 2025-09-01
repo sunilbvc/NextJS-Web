@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Menu, X, Phone, Mail } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -19,13 +20,16 @@ export default function Header() {
       <div className="px-2 sm:px-4 lg:px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex items-center space-x-2 lg:space-x-3 flex-shrink-0">
-            <div className="w-8 h-8 lg:w-10 lg:h-10 bg-gradient-to-br from-pink-500 to-purple-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm lg:text-xl">D</span>
-            </div>
-            <div className="hidden sm:block">
-              <h1 className="text-sm lg:text-xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent whitespace-nowrap">Digi Solence</h1>
-              <p className="text-xs text-gray-400">Digital Excellence</p>
+          <div className="flex items-center flex-shrink-0">
+            <div className="w-[140px] h-[68px] flex items-center justify-center overflow-hidden">
+              <Image
+                src="/logo-new.png"
+                alt="Digi Solence Logo"
+                width={140}
+                height={68}
+                className="w-full h-full object-cover filter brightness-0 invert"
+                priority
+              />
             </div>
           </div>
           

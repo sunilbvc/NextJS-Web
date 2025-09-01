@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Facebook, Twitter, Instagram, Linkedin, Youtube, Phone, Mail, MapPin, CheckCircle, XCircle, Loader2 } from 'lucide-react'
 import { useState } from 'react'
+import Image from 'next/image'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -86,15 +87,16 @@ export default function Footer() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
             {/* Company Info */}
             <div className="lg:col-span-1">
-              <div className="flex items-center space-x-2 mb-6">
-                <div className="w-10 h-10 bg-gradient-to-br from-pink-500 to-purple-500 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">D</span>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
-                    Digi Solence
-                  </h3>
-                  <p className="text-xs text-gray-400">Digital Excellence</p>
+              <div className="flex items-center mb-6">
+                <div className="w-[140px] h-[68px] flex items-center justify-center overflow-hidden">
+                  <Image
+                    src="/logo-new.png"
+                    alt="Digi Solence Logo"
+                    width={140}
+                    height={68}
+                    className="w-full h-full object-cover filter brightness-0 invert"
+                    priority
+                  />
                 </div>
               </div>
               
