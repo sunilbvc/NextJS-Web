@@ -176,7 +176,7 @@ export default function Footer() {
                 
                 <div className="flex items-center space-x-3">
                   <Mail className="w-5 h-5 text-pink-500" />
-                  <span className="text-gray-300 text-sm">hello@devnestdigital.com</span>
+                  <span className="text-gray-300 text-sm">support@digisolence.in</span>
                 </div>
               </div>
 

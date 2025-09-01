@@ -123,7 +123,7 @@ export default function ContactForm() {
                   </div>
                   <div>
                     <h4 className="text-white font-semibold mb-1">Email</h4>
-                    <p className="text-gray-300">hello@devnestdigital.com</p>
+                    <p className="text-gray-300">support@digisolence.in</p>
                   </div>
                 </div>
                 

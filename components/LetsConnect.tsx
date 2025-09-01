@@ -146,7 +146,7 @@ export default function LetsConnect() {
               </div>
               <div>
                 <h4 className="text-white font-semibold mb-1">Email Us</h4>
-                <p className="text-gray-300 text-sm">hello@devnestdigital.com</p>
+                <p className="text-gray-300 text-sm">support@digisolence.in</p>
               </div>
             </div>
             

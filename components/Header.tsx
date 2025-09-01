@@ -58,7 +58,7 @@ export default function Header() {
               </div>
               <div className="flex items-center space-x-2 text-sm text-gray-400">
                 <Mail className="w-4 h-4" />
-                <span>hello@devnestdigital.com</span>
+                <span>support@digisolence.in</span>
               </div>
             </div>
             
