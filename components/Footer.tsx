@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Facebook, Twitter, Instagram, Linkedin, Youtube, Phone, Mail, MapPin, CheckCircle, XCircle, Loader2 } from 'lucide-react'
+import { Facebook, Twitter, Instagram, Linkedin, Phone, Mail, MapPin, CheckCircle, XCircle, Loader2 } from 'lucide-react'
 import { useState } from 'react'
 import Image from 'next/image'
 
@@ -72,11 +72,10 @@ export default function Footer() {
   ]
 
   const socialLinks = [
-    { name: 'Facebook', icon: Facebook, href: '#', color: 'hover:text-blue-500' },
-    { name: 'Twitter', icon: Twitter, href: '#', color: 'hover:text-blue-400' },
-    { name: 'Instagram', icon: Instagram, href: '#', color: 'hover:text-pink-500' },
-    { name: 'LinkedIn', icon: Linkedin, href: '#', color: 'hover:text-blue-600' },
-    { name: 'YouTube', icon: Youtube, href: '#', color: 'hover:text-red-500' }
+    { name: 'Facebook', icon: Facebook, href: 'http://facebook.com/digisolence', color: 'hover:text-blue-500' },
+    { name: 'X', icon: Twitter, href: 'https://x.com/DigiSolence', color: 'hover:text-gray-300' },
+    { name: 'Instagram', icon: Instagram, href: 'https://www.instagram.com/digisolence?igsh=aHFscHZoazNtcmhx', color: 'hover:text-pink-500' },
+    { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/company/digi-solence/', color: 'hover:text-blue-600' }
   ]
 
   return (
