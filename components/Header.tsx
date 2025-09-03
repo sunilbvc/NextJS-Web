@@ -22,11 +22,11 @@ export default function Header() {
           <div className="flex items-center flex-shrink-0">
             <div className="w-[140px] h-[68px] flex items-center justify-center overflow-hidden">
               <Image
-                src="/rectangle-logo.png"
+                src="/logo-transparent.png"
                 alt="Digi Solence Logo"
                 width={140}
                 height={68}
-                className="w-full h-full object-cover filter brightness-0 invert"
+                className="w-full h-full object-contain"
                 priority
               />
             </div>
