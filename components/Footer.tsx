@@ -88,12 +88,11 @@ export default function Footer() {
               <div className="flex items-center mb-6">
                 <div className="w-[140px] h-[68px] flex items-center justify-center overflow-hidden">
                   <Image
-                    src="/digisolence-logo.png"
+                    src="/white-logo.png"
                     alt="Digi Solence Logo"
                     width={140}
                     height={68}
                     className="w-full h-full object-contain"
-                    style={{ filter: 'brightness(0) saturate(100%) invert(1)' }}
                     priority
                   />
                 </div>
