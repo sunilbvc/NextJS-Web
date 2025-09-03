@@ -54,7 +54,6 @@ export default function Footer() {
     { name: 'Services', href: '#services' },
     { name: 'Pricing', href: '#pricing' },
     { name: 'About', href: '#about' },
-    { name: 'Portfolio', href: '#portfolio' },
     { name: 'Contact', href: '#contact' },
     { name: 'Careers', href: '#' },
     { name: 'Privacy Policy', href: '#' }
@@ -170,7 +169,7 @@ export default function Footer() {
                 
                 <div className="flex items-center space-x-3">
                   <Phone className="w-5 h-5 text-pink-500" />
-                  <span className="text-gray-300 text-sm">8104691455</span>
+                  <span className="text-gray-300 text-sm">+91 8949648309</span>
                 </div>
                 
                 <div className="flex items-center space-x-3">
@@ -253,17 +252,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* WhatsApp Float Button */}
-      <motion.a
-        href="https://wa.me/15551234567"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 z-50"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        <span className="text-2xl">💬</span>
-      </motion.a>
+
     </footer>
   )
 } 

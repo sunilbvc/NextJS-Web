@@ -12,7 +12,6 @@ export default function Header() {
     { name: 'Services', href: '#services' },
     { name: 'Pricing', href: '#pricing' },
     { name: 'About', href: '#about' },
-    { name: 'Portfolio', href: '#portfolio' },
     { name: 'Contact', href: '#contact' },
   ]
   return (
@@ -54,7 +53,7 @@ export default function Header() {
             <div className="hidden xl:flex items-center space-x-4">
               <div className="flex items-center space-x-2 text-sm text-gray-400">
                 <Phone className="w-4 h-4" />
-                <span>8104691455</span>
+                <span>+91 8949648309</span>
               </div>
               <div className="flex items-center space-x-2 text-sm text-gray-400">
                 <Mail className="w-4 h-4" />

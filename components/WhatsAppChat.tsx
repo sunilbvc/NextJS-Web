@@ -4,9 +4,12 @@ import { motion } from 'framer-motion'
 import { MessageCircle } from 'lucide-react'
 
 export default function WhatsAppChat() {
-  const handleWhatsAppClick = () => {
-    // Remove the +91 prefix and use just the number
-    const phoneNumber = '8104691455' // Your WhatsApp number without country code prefix
+  const handleWhatsAppClick = (e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    
+    // Use the phone number without spaces and special characters
+    const phoneNumber = '8949648309' // Your WhatsApp number without country code prefix
     const message = 'Hi! I\'m interested in your digital marketing and web development services. Can you help me get started?'
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
     
@@ -14,7 +17,14 @@ export default function WhatsAppChat() {
     
     // Try to open WhatsApp
     try {
-      window.open(whatsappUrl, '_blank')
+      // Create a temporary link element to ensure proper navigation
+      const link = document.createElement('a')
+      link.href = whatsappUrl
+      link.target = '_blank'
+      link.rel = 'noopener noreferrer'
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
     } catch (error) {
       console.error('Error opening WhatsApp:', error)
       // Fallback: try to open in same window
@@ -35,9 +45,10 @@ export default function WhatsAppChat() {
         onMouseDown={() => console.log('Button clicked!')} // Debug click
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        className="w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full shadow-lg hover:shadow-xl flex items-center justify-center text-white transition-all duration-300 group cursor-pointer"
+        className="relative w-16 h-16 bg-green-500 hover:bg-green-600 active:bg-green-700 rounded-full shadow-lg hover:shadow-xl flex items-center justify-center text-white transition-all duration-300 group cursor-pointer z-10"
         aria-label="Chat on WhatsApp"
         type="button"
+        style={{ pointerEvents: 'auto' }}
       >
         {/* WhatsApp Icon */}
         <svg 
@@ -59,7 +70,8 @@ export default function WhatsAppChat() {
       <motion.div
         animate={{ scale: [1, 1.2, 1] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute inset-0 bg-green-400 rounded-full opacity-30"
+        className="absolute inset-0 bg-green-400 rounded-full opacity-30 pointer-events-none"
+        style={{ zIndex: -1 }}
       />
     </motion.div>
   )

@@ -6,8 +6,8 @@ import { Check, Star, Globe, ShoppingCart, Code, ArrowRight } from 'lucide-react
 export default function Pricing() {
   const plans = [
     {
-      name: 'Basic Website',
-      price: 'Rs 9,999',
+      name: 'WordPress Premium Website',
+      price: 'Rs 14,999',
       period: '/one-time',
       description: 'Perfect for small businesses and startups',
       badge: 'BASIC PLAN',

@@ -136,7 +136,7 @@ export default function LetsConnect() {
               </div>
               <div>
                 <h4 className="text-white font-semibold mb-1">Call Us</h4>
-                <p className="text-gray-300 text-sm">+91 8104691455</p>
+                <p className="text-gray-300 text-sm">+91 +91 8949648309</p>
               </div>
             </div>
             
