@@ -9,7 +9,7 @@ export default function WhatsAppChat() {
     e.stopPropagation()
     
     // Use the phone number without spaces and special characters
-    const phoneNumber = '8949648309' // Your WhatsApp number without country code prefix
+    const phoneNumber = '918949648309' // Your WhatsApp number without country code prefix
     const message = 'Hi! I\'m interested in your digital marketing and web development services. Can you help me get started?'
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
     
