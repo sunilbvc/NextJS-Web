@@ -13,9 +13,30 @@ export interface SEOData {
 
 // Default SEO configuration
 export const defaultSEO: SEOData = {
-  title: 'Digi Solence - #1 Social Media Marketing & Web Development Agency in Mumbai',
-  description: 'Transform your business with Mumbai\'s leading social media marketing and web development agency. Expert SEO, content marketing, branding, and digital solutions that drive real results. Free hosting, domain & SSL included.',
+  title: 'Website & Digital Marketing Company in Mumbai | Affordable Web + SEO Services',
+  description: 'Looking for website development and digital marketing in Mumbai? We offer responsive websites, SEO, PPC, and social media marketing for startups and businesses.',
   keywords: [
+    'website and digital marketing company in Mumbai',
+    'best website development & digital marketing agency Mumbai',
+    'website design and SEO services Mumbai',
+    'website development and digital marketing for small business Mumbai',
+    'affordable website and digital marketing services Mumbai',
+    'website development company in Mumbai',
+    'web design agency in Mumbai',
+    'responsive website design services Mumbai',
+    'ecommerce website development in Mumbai',
+    'WordPress website development Mumbai',
+    'custom web development company Mumbai',
+    'digital marketing agency in Mumbai',
+    'social media marketing agency Mumbai',
+    'SEO services in Mumbai',
+    'PPC advertising agency Mumbai',
+    'Google Ads management Mumbai',
+    'content marketing agency in Mumbai',
+    'website and digital marketing services near me Mumbai',
+    'best website design & digital marketing agency for startups in Mumbai',
+    'digital marketing & website development company for ecommerce in Mumbai',
+    'creative website and branding agency Mumbai',
     'social media marketing',
     'web development',
     'digital marketing agency',
@@ -46,8 +67,8 @@ export const defaultSEO: SEOData = {
 export const seoConfigs = {
   home: {
     ...defaultSEO,
-    title: 'Digi Solence - #1 Social Media Marketing & Web Development Agency in Mumbai',
-    description: 'Transform your business with Mumbai\'s leading social media marketing and web development agency. Expert SEO, content marketing, branding, and digital solutions that drive real results. Free hosting, domain & SSL included.',
+    title: 'Website & Digital Marketing Company in Mumbai | Affordable Web + SEO Services',
+    description: 'Looking for website development and digital marketing in Mumbai? We offer responsive websites, SEO, PPC, and social media marketing for startups and businesses.',
   },
   
   services: {

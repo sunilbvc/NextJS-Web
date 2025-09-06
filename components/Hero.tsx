@@ -167,13 +167,13 @@ export default function Hero() {
               </motion.div>
               
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                Mumbai's Top and Trusted <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">Web Design</span> & Shopify Development Agency
+                Best <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">Website & Digital Marketing</span> Company in Mumbai
               </h1>
               
               <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">
-                Build, Grow, and Optimize Your Online Business with our expert team. 
-                We craft compelling digital experiences that drive engagement, 
-                boost conversions, and accelerate your business growth.
+                Looking for website development and digital marketing in Mumbai? We offer responsive websites, 
+                SEO, PPC, and social media marketing for startups and businesses. 
+                Affordable solutions that drive real results.
               </p>
             </div>
 
