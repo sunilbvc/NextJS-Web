@@ -42,6 +42,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        {/* Favicon */}
+        <link rel="icon" href="/fav-icon.jpeg" type="image/jpeg" />
+        <link rel="shortcut icon" href="/fav-icon.jpeg" type="image/jpeg" />
+        <link rel="apple-touch-icon" href="/fav-icon.jpeg" />
+        
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-L698RD33TH"
