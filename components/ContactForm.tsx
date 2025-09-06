@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { LazyMotionWrapper, OptimizedMotion as motion } from './LazyMotion'
 import { Send, Mail, Phone, MapPin, Loader2, CheckCircle, XCircle } from 'lucide-react'
 
 export default function ContactForm() {
@@ -82,7 +82,8 @@ export default function ContactForm() {
   }
 
   return (
-    <section id="contact" className="py-16 sm:py-20 bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900">
+    <LazyMotionWrapper>
+      <section id="contact" className="py-16 sm:py-20 bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900">
       <div className="container-custom">
         <div className="text-center mb-12 sm:mb-16">
           <motion.h2
@@ -332,6 +333,7 @@ export default function ContactForm() {
           </motion.div>
         </div>
       </div>
-    </section>
+      </section>
+    </LazyMotionWrapper>
   )
 } 

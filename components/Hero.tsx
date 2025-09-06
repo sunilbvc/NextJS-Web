@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { LazyMotionWrapper, OptimizedMotion as motion } from './LazyMotion'
 import { ArrowRight, Play, TrendingUp, Users, Globe, CheckCircle, XCircle, Loader2 } from 'lucide-react'
 import { useState } from 'react'
 
@@ -144,7 +144,8 @@ export default function Hero() {
   }
 
   return (
-    <section id="home" className="pt-20 pb-16 bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900 text-white">
+    <LazyMotionWrapper>
+      <section id="home" className="pt-20 pb-16 bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900 text-white">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Content */}
@@ -360,6 +361,7 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
-    </section>
+      </section>
+    </LazyMotionWrapper>
   )
 } 
