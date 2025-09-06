@@ -122,7 +122,7 @@ export default function ContactForm() {
                     <Mail className="w-6 h-6 text-pink-400" />
                   </div>
                   <div>
-                    <h4 className="text-white font-semibold mb-1">Email</h4>
+                    <h3 className="text-white font-semibold mb-1">Email</h3>
                     <p className="text-gray-300">support@digisolence.in</p>
                   </div>
                 </div>
@@ -132,7 +132,7 @@ export default function ContactForm() {
                     <Phone className="w-6 h-6 text-pink-400" />
                   </div>
                   <div>
-                    <h4 className="text-white font-semibold mb-1">Phone</h4>
+                    <h3 className="text-white font-semibold mb-1">Phone</h3>
                     <p className="text-gray-300">+91 +91 8949648309</p>
                   </div>
                 </div>
@@ -142,7 +142,7 @@ export default function ContactForm() {
                     <MapPin className="w-6 h-6 text-pink-400" />
                   </div>
                   <div>
-                    <h4 className="text-white font-semibold mb-1">Address</h4>
+                    <h3 className="text-white font-semibold mb-1">Address</h3>
                     <p className="text-gray-300">Andheri West, Mumbai<br />Maharashtra, India</p>
                   </div>
                 </div>
@@ -150,7 +150,7 @@ export default function ContactForm() {
 
               {/* Additional Benefits with Tick Marks */}
               <div className="pt-6 border-t border-gray-700/50">
-                <h4 className="text-lg font-semibold text-white mb-4">Why Contact Us?</h4>
+                <h3 className="text-lg font-semibold text-white mb-4">Why Contact Us?</h3>
                 <div className="space-y-3">
                   <div className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
@@ -196,72 +196,96 @@ export default function ContactForm() {
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-white/20 shadow-2xl">
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    placeholder="Your Name"
-                    required
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-                  />
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="Your Email"
-                    required
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-                  />
+                  <div>
+                    <label htmlFor="contact-name" className="sr-only">Your Name</label>
+                    <input
+                      id="contact-name"
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      placeholder="Your Name"
+                      required
+                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="contact-email" className="sr-only">Your Email</label>
+                    <input
+                      id="contact-email"
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder="Your Email"
+                      required
+                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                    />
+                  </div>
                 </div>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    placeholder="Your Phone"
-                    required
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-                  />
-                  <input
-                    type="text"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleInputChange}
-                    placeholder="Your Company"
-                    required
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-                  />
+                  <div>
+                    <label htmlFor="contact-phone" className="sr-only">Your Phone</label>
+                    <input
+                      id="contact-phone"
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      placeholder="Your Phone"
+                      required
+                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="contact-company" className="sr-only">Your Company</label>
+                    <input
+                      id="contact-company"
+                      type="text"
+                      name="company"
+                      value={formData.company}
+                      onChange={handleInputChange}
+                      placeholder="Your Company"
+                      required
+                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                    />
+                  </div>
                 </div>
                 
-                <select
-                  name="service"
-                  value={formData.service}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-                >
-                  <option value="">Select a Service</option>
-                  <option value="web-design">Web Design</option>
-                  <option value="web-development">Web Development</option>
-                  <option value="ecommerce">E-commerce Solutions</option>
-                  <option value="digital-marketing">Digital Marketing</option>
-                  <option value="seo">SEO & Analytics</option>
-                  <option value="social-media">Social Media Marketing</option>
-                </select>
+                <div>
+                  <label htmlFor="contact-service" className="sr-only">Select a Service</label>
+                  <select
+                    id="contact-service"
+                    name="service"
+                    value={formData.service}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                  >
+                    <option value="">Select a Service</option>
+                    <option value="web-design">Web Design</option>
+                    <option value="web-development">Web Development</option>
+                    <option value="ecommerce">E-commerce Solutions</option>
+                    <option value="digital-marketing">Digital Marketing</option>
+                    <option value="seo">SEO & Analytics</option>
+                    <option value="social-media">Social Media Marketing</option>
+                  </select>
+                </div>
                 
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  placeholder="Your Message"
-                  rows={4}
-                  required
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent resize-none"
-                />
+                <div>
+                  <label htmlFor="contact-message" className="sr-only">Your Message</label>
+                  <textarea
+                    id="contact-message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    placeholder="Your Message"
+                    rows={4}
+                    required
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent resize-none"
+                  />
+                </div>
                 
                 <button
                   type="submit"

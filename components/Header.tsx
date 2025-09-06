@@ -36,11 +36,11 @@ export default function Header() {
           <nav className="hidden lg:flex items-center space-x-8 flex-1 justify-center">
             {navigation.map((item) => (
               item.href.startsWith('#') ? (
-                <a key={item.name} href={item.href} className="text-gray-300 hover:text-pink-400 font-medium transition-colors duration-200 whitespace-nowrap">
+                <a key={item.name} href={item.href} className="text-gray-300 hover:text-pink-400 font-medium transition-colors duration-200 whitespace-nowrap" aria-label={`Navigate to ${item.name} section`}>
                   {item.name}
                 </a>
               ) : (
-                <Link key={item.name} href={item.href} className="text-gray-300 hover:text-pink-400 font-medium transition-colors duration-200 whitespace-nowrap">
+                <Link key={item.name} href={item.href} className="text-gray-300 hover:text-pink-400 font-medium transition-colors duration-200 whitespace-nowrap" aria-label={`Navigate to ${item.name} page`}>
                   {item.name}
                 </Link>
               )
@@ -63,7 +63,7 @@ export default function Header() {
             
             {/* CTA Button - Hidden on small screens */}
             <div className="hidden md:block">
-              <a href="#contact" className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold py-2 lg:py-3 px-4 lg:px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl whitespace-nowrap text-sm lg:text-base">
+              <a href="#contact" className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold py-2 lg:py-3 px-4 lg:px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl whitespace-nowrap text-sm lg:text-base" aria-label="Get started with our services">
                 Get Started
               </a>
             </div>
@@ -85,17 +85,17 @@ export default function Header() {
             <nav className="flex flex-col space-y-4">
               {navigation.map((item) => (
                 item.href.startsWith('#') ? (
-                  <a key={item.name} href={item.href} className="text-gray-300 hover:text-pink-400 font-medium transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>
+                  <a key={item.name} href={item.href} className="text-gray-300 hover:text-pink-400 font-medium transition-colors duration-200" onClick={() => setIsMenuOpen(false)} aria-label={`Navigate to ${item.name} section`}>
                     {item.name}
                   </a>
                 ) : (
-                  <Link key={item.name} href={item.href} className="text-gray-300 hover:text-pink-400 font-medium transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>
+                  <Link key={item.name} href={item.href} className="text-gray-300 hover:text-pink-400 font-medium transition-colors duration-200" onClick={() => setIsMenuOpen(false)} aria-label={`Navigate to ${item.name} page`}>
                     {item.name}
                   </Link>
                 )
               ))}
               <div className="pt-4">
-                <a href="#contact" className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl w-full text-center block">
+                <a href="#contact" className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl w-full text-center block" aria-label="Get started with our services">
                   Get Started
                 </a>
               </div>

@@ -166,7 +166,7 @@ export default function Hero() {
               </motion.div>
               
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                India's Top and Trusted <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">Web Design</span> & Shopify Development Agency
+                Mumbai's Top and Trusted <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">Web Design</span> & Shopify Development Agency
               </h1>
               
               <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">
@@ -182,6 +182,7 @@ export default function Hero() {
                 className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                aria-label="Get a quote for your project"
               >
                 <span>Get a Quote</span>
                 <ArrowRight className="w-5 h-5" />
@@ -191,6 +192,7 @@ export default function Hero() {
                 className="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                aria-label="Explore our services"
               >
                 <Play className="w-5 h-5" />
                 <span>Explore Services</span>
@@ -225,69 +227,93 @@ export default function Hero() {
           >
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-white/20 shadow-2xl">
               <div className="text-center mb-6">
-                <h3 className="text-xl sm:text-2xl font-bold mb-2">NEW PROJECT IN MIND?</h3>
+                <h2 className="text-xl sm:text-2xl font-bold mb-2">NEW PROJECT IN MIND?</h2>
                 <p className="text-gray-300 text-sm">Get your free quote today</p>
               </div>
               
               <form className="space-y-4" onSubmit={handleFormSubmit}>
-                <input
-                  name="name"
-                  type="text"
-                  placeholder="Name"
-                  required
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-                />
-                <input
-                  name="email"
-                  type="email"
-                  placeholder="Email"
-                  required
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-                />
-                <input
-                  name="phone"
-                  type="tel"
-                  placeholder="Phone"
-                  required
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-                />
-                <input
-                  name="company"
-                  type="text"
-                  placeholder="Company"
-                  required
-                  value={formData.company}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-                />
-                <select 
-                  name="service"
-                  required
-                  value={formData.service}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-                >
-                  <option value="">Select Service</option>
-                  <option value="web-design">Web Design</option>
-                  <option value="web-development">Web Development</option>
-                  <option value="ecommerce">E-commerce Solutions</option>
-                  <option value="digital-marketing">Digital Marketing</option>
-                </select>
-                <textarea
-                  name="message"
-                  placeholder="Message"
-                  required
-                  rows={3}
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent resize-none"
-                />
+                <div>
+                  <label htmlFor="hero-name" className="sr-only">Name</label>
+                  <input
+                    id="hero-name"
+                    name="name"
+                    type="text"
+                    placeholder="Name"
+                    required
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="hero-email" className="sr-only">Email</label>
+                  <input
+                    id="hero-email"
+                    name="email"
+                    type="email"
+                    placeholder="Email"
+                    required
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="hero-phone" className="sr-only">Phone</label>
+                  <input
+                    id="hero-phone"
+                    name="phone"
+                    type="tel"
+                    placeholder="Phone"
+                    required
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="hero-company" className="sr-only">Company</label>
+                  <input
+                    id="hero-company"
+                    name="company"
+                    type="text"
+                    placeholder="Company"
+                    required
+                    value={formData.company}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="hero-service" className="sr-only">Service</label>
+                  <select 
+                    id="hero-service"
+                    name="service"
+                    required
+                    value={formData.service}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                  >
+                    <option value="">Select Service</option>
+                    <option value="web-design">Web Design</option>
+                    <option value="web-development">Web Development</option>
+                    <option value="ecommerce">E-commerce Solutions</option>
+                    <option value="digital-marketing">Digital Marketing</option>
+                  </select>
+                </div>
+                <div>
+                  <label htmlFor="hero-message" className="sr-only">Message</label>
+                  <textarea
+                    id="hero-message"
+                    name="message"
+                    placeholder="Message"
+                    required
+                    rows={3}
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent resize-none"
+                  />
+                </div>
                 <button
                   type="submit"
                   disabled={isSubmitting}
