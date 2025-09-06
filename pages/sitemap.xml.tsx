@@ -6,7 +6,7 @@ const Sitemap = () => {
 };
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
-  const baseUrl = 'https://digitalcraftpro.com';
+  const baseUrl = 'https://digisolence.in';
   const currentDate = new Date().toISOString().split('T')[0];
 
   const staticPages = [
