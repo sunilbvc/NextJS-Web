@@ -144,6 +144,36 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//www.google-analytics.com" />
         
+        {/* Critical CSS for mobile performance */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            /* Critical above-the-fold styles */
+            .hero-gradient { background: linear-gradient(135deg, #1f2937 0%, #7c3aed 50%, #1e40af 100%); }
+            .text-gradient { background: linear-gradient(90deg, #ec4899, #a855f7); -webkit-background-clip: text; background-clip: text; }
+            .btn-primary { background: linear-gradient(90deg, #db2777, #7c3aed); }
+            .btn-secondary { background: #059669; }
+            .form-input { background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); }
+            .container-custom { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+            
+            /* Mobile-first responsive design */
+            @media (max-width: 640px) {
+              .hero-gradient { min-height: 100vh; }
+              .text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+              .text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+              .text-5xl { font-size: 2.5rem; line-height: 3rem; }
+              .text-6xl { font-size: 3rem; line-height: 3.5rem; }
+            }
+            
+            /* Prevent layout shift */
+            .lazy-load { min-height: 200px; }
+            
+            /* Optimize animations for mobile */
+            @media (prefers-reduced-motion: reduce) {
+              * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+            }
+          `
+        }} />
+        
         {/* Structured Data - Organization */}
         <Script
           id="structured-data-organization"

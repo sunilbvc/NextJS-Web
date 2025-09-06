@@ -145,7 +145,7 @@ export default function Hero() {
 
   return (
     <LazyMotionWrapper>
-      <section id="home" className="pt-20 pb-16 bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900 text-white">
+            <section id="home" className="pt-20 pb-16 hero-gradient text-white">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Content */}
@@ -167,7 +167,7 @@ export default function Hero() {
               </motion.div>
               
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                Best <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">Website & Digital Marketing</span> Company in Mumbai
+                Best <span className="text-gradient">Website & Digital Marketing</span> Company in Mumbai
               </h1>
               
               <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">
@@ -180,7 +180,7 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4">
               <motion.a
                 href="#contact"
-                className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
+                className="btn-primary hover:opacity-90 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 aria-label="Get a quote for your project"
@@ -190,7 +190,7 @@ export default function Hero() {
               </motion.a>
               
               <motion.button
-                className="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
+                className="btn-secondary hover:opacity-90 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 aria-label="Explore our services"
@@ -235,16 +235,16 @@ export default function Hero() {
               <form className="space-y-4" onSubmit={handleFormSubmit}>
                 <div>
                   <label htmlFor="hero-name" className="sr-only">Name</label>
-                  <input
-                    id="hero-name"
-                    name="name"
-                    type="text"
-                    placeholder="Name"
-                    required
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-                  />
+                            <input
+                              id="hero-name"
+                              name="name"
+                              type="text"
+                              placeholder="Name"
+                              required
+                              value={formData.name}
+                              onChange={handleInputChange}
+                              className="w-full px-4 py-3 form-input rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                            />
                 </div>
                 <div>
                   <label htmlFor="hero-email" className="sr-only">Email</label>
@@ -256,7 +256,7 @@ export default function Hero() {
                     required
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                    className="w-full px-4 py-3 bg-white/20 border border-white/40 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                   />
                 </div>
                 <div>
@@ -269,7 +269,7 @@ export default function Hero() {
                     required
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                    className="w-full px-4 py-3 bg-white/20 border border-white/40 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                   />
                 </div>
                 <div>
@@ -282,7 +282,7 @@ export default function Hero() {
                     required
                     value={formData.company}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                    className="w-full px-4 py-3 bg-white/20 border border-white/40 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                   />
                 </div>
                 <div>

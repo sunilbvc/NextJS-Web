@@ -8,21 +8,23 @@ import TechnologyStack from '../components/TechnologyStack'
 import About from '../components/About'
 import Footer from '../components/Footer'
 import WhatsAppChat from '../components/WhatsAppChat'
+import MobileOptimizedLoader, { MobileOptimizations } from '../components/MobileOptimizedLoader'
 
-// Lazy load heavy components
+// Lazy load heavy components with mobile-optimized loading
 const ContactForm = dynamic(() => import('../components/ContactForm'), {
-  loading: () => <div className="py-16 sm:py-20 bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900"><div className="container-custom"><div className="text-center text-white">Loading...</div></div></div>
+  loading: () => <div className="lazy-load py-16 sm:py-20 bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900"><div className="container-custom"><div className="text-center text-white">Loading...</div></div></div>
 })
 const EmailSubscription = dynamic(() => import('../components/EmailSubscription'), {
-  loading: () => <div className="py-8 bg-gray-900"><div className="container-custom"><div className="text-center text-white">Loading...</div></div></div>
+  loading: () => <div className="lazy-load py-8 bg-gray-900"><div className="container-custom"><div className="text-center text-white">Loading...</div></div></div>
 })
 const LetsConnect = dynamic(() => import('../components/LetsConnect'), {
-  loading: () => <div className="py-8 bg-gray-900"><div className="container-custom"><div className="text-center text-white">Loading...</div></div></div>
+  loading: () => <div className="lazy-load py-8 bg-gray-900"><div className="container-custom"><div className="text-center text-white">Loading...</div></div></div>
 })
 
 export default function Home() {
   return (
     <main className="min-h-screen">
+      <MobileOptimizations />
       <Header />
       <Hero />
       <Services />
@@ -33,9 +35,15 @@ export default function Home() {
       <About />
       {/* <Portfolio /> */}
       {/* <Testimonials /> */}
-      <ContactForm />
-      <EmailSubscription />
-      <LetsConnect />
+      <MobileOptimizedLoader>
+        <ContactForm />
+      </MobileOptimizedLoader>
+      <MobileOptimizedLoader>
+        <EmailSubscription />
+      </MobileOptimizedLoader>
+      <MobileOptimizedLoader>
+        <LetsConnect />
+      </MobileOptimizedLoader>
       <Footer />
       <WhatsAppChat />
     </main>
