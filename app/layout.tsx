@@ -62,21 +62,21 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://digisolence.in'),
+  metadataBase: new URL('https://digitalcraftpro.com'),
   alternates: {
-    canonical: '/',
+    canonical: 'https://digitalcraftpro.com',
   },
   openGraph: {
     title: 'Website & Digital Marketing Company in Mumbai | Affordable Web + SEO Services',
     description: 'Looking for website development and digital marketing in Mumbai? We offer responsive websites, SEO, PPC, and social media marketing for startups and businesses.',
-    url: 'https://digisolence.in',
+    url: 'https://digitalcraftpro.com',
     siteName: 'Digi Solence',
     images: [
       {
-        url: '/og-image.jpg',
+        url: 'https://digitalcraftpro.com/og-image.svg',
         width: 1200,
         height: 630,
-        alt: 'Digi Solence - Mumbai\'s Leading Digital Marketing Agency',
+        alt: 'Digi Solence - Website & Digital Marketing Company in Mumbai',
       },
     ],
     locale: 'en_IN',
@@ -87,7 +87,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Website & Digital Marketing Company in Mumbai | Affordable Web + SEO Services',
     description: 'Looking for website development and digital marketing in Mumbai? We offer responsive websites, SEO, PPC, and social media marketing for startups and businesses.',
-    images: ['/og-image.jpg'],
+    images: ['https://digitalcraftpro.com/og-image.svg'],
     creator: '@digisolence',
     site: '@digisolence',
   },
@@ -118,10 +118,16 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        {/* Favicon */}
+        {/* Favicon - Multiple formats for better compatibility */}
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        
+        {/* Fallback favicon */}
         <link rel="icon" href="/fav-icon.jpeg" type="image/jpeg" />
         <link rel="shortcut icon" href="/fav-icon.jpeg" type="image/jpeg" />
-        <link rel="apple-touch-icon" href="/fav-icon.jpeg" />
         
         {/* Additional Meta Tags */}
         <meta name="theme-color" content="#3B82F6" />
@@ -134,6 +140,47 @@ export default function RootLayout({
         <meta name="distribution" content="global" />
         <meta name="rating" content="general" />
         <meta name="revisit-after" content="7 days" />
+        
+        {/* WhatsApp and Social Media Specific Meta Tags */}
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:alt" content="Digi Solence - Website & Digital Marketing Company in Mumbai" />
+        <meta property="og:site_name" content="Digi Solence" />
+        <meta property="og:locale" content="en_IN" />
+        <meta property="og:type" content="website" />
+        
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:image:alt" content="Digi Solence - Website & Digital Marketing Company in Mumbai" />
+        <meta name="twitter:domain" content="digitalcraftpro.com" />
+        <meta name="twitter:url" content="https://digitalcraftpro.com" />
+        
+        {/* WhatsApp Specific */}
+        <meta property="og:image" content="https://digitalcraftpro.com/og-image.svg" />
+        <meta property="og:image:secure_url" content="https://digitalcraftpro.com/og-image.svg" />
+        <meta property="og:url" content="https://digitalcraftpro.com" />
+        <meta property="og:title" content="Website & Digital Marketing Company in Mumbai | Affordable Web + SEO Services" />
+        <meta property="og:description" content="Looking for website development and digital marketing in Mumbai? We offer responsive websites, SEO, PPC, and social media marketing for startups and businesses." />
+        
+        {/* Additional WhatsApp Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Website & Digital Marketing Company in Mumbai | Affordable Web + SEO Services" />
+        <meta name="twitter:description" content="Looking for website development and digital marketing in Mumbai? We offer responsive websites, SEO, PPC, and social media marketing for startups and businesses." />
+        <meta name="twitter:image" content="https://digitalcraftpro.com/og-image.svg" />
+        
+        {/* Additional Social Media Meta Tags */}
+        <meta name="description" content="Looking for website development and digital marketing in Mumbai? We offer responsive websites, SEO, PPC, and social media marketing for startups and businesses." />
+        <meta name="keywords" content="website and digital marketing company in Mumbai, best website development & digital marketing agency Mumbai, website design and SEO services Mumbai" />
+        
+        {/* WhatsApp and Social Media Cache Busting */}
+        <meta property="og:updated_time" content={new Date().toISOString()} />
+        <meta name="twitter:updated_time" content={new Date().toISOString()} />
+        
+        {/* Additional WhatsApp Meta Tags for Better Compatibility */}
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/svg+xml" />
+        <meta property="og:image:alt" content="Digi Solence - Website & Digital Marketing Company in Mumbai" />
         
         {/* Preconnect to external domains */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
