@@ -1,0 +1,9 @@
+# Ignore any potential conflicting files
+robots.txt
+sitemap.xml
+
+# Ignore development files
+.DS_Store
+*.log
+node_modules
+.next

@@ -5,7 +5,7 @@ const Robots = () => {
 };
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
-  const baseUrl = 'https://digisolence.in';
+  const baseUrl = 'https://digitalcraftpro.com';
 
   const robotsTxt = `User-agent: *
 Allow: /
