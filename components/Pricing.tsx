@@ -22,6 +22,8 @@ export default function Pricing() {
         'Click-to-call functionality',
         'Google Analytics setup',
         'Basic tracking & reporting',
+        'Free hosting and domain (1 year)',
+        'Free SSL certificate',
         '1 month free support'
       ],
       popular: false
@@ -48,6 +50,8 @@ export default function Pricing() {
         'Advanced Google Analytics',
         'Ecommerce tracking setup',
         'Conversion goal tracking',
+        'Free hosting and domain (1 year)',
+        'Free SSL certificate',
         '3 months free support'
       ],
       popular: true
@@ -77,6 +81,8 @@ export default function Pricing() {
         'Custom event tracking',
         'Advanced conversion funnels',
         'Data studio integration',
+        'Free hosting and domain (1 year)',
+        'Free SSL certificate',
         '6 months free support',
         'Priority support & maintenance'
       ],
