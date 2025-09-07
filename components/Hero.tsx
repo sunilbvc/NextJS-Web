@@ -163,7 +163,7 @@ export default function Hero() {
                 className="inline-flex items-center px-4 py-2 bg-pink-500/20 text-pink-400 rounded-full text-sm font-medium border border-pink-500/30"
               >
                 <span className="w-2 h-2 bg-pink-400 rounded-full mr-2"></span>
-                Award-Winning Digital Agency
+                Your Partner in Web Innovation & Digital Success
               </motion.div>
               
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
