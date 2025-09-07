@@ -70,3 +70,4 @@ export const MobileOptimizations = () => {
 
   return null
 }
+

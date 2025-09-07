@@ -50,8 +50,6 @@ export default function Pricing() {
         'Advanced Google Analytics',
         'Ecommerce tracking setup',
         'Conversion goal tracking',
-        'Free hosting and domain (1 year)',
-        'Free SSL certificate',
         '3 months free support'
       ],
       popular: true
@@ -72,17 +70,10 @@ export default function Pricing() {
         'Third-party integrations',
         'Advanced analytics & reporting',
         'Multi-language & multi-currency',
-        'Advanced security features',
         'Enterprise WhatsApp Business API',
-        'Advanced call center integration',
-        'Custom communication workflows',
         'Real-time notifications system',
         'Google Analytics 4 (GA4) setup',
-        'Custom event tracking',
         'Advanced conversion funnels',
-        'Data studio integration',
-        'Free hosting and domain (1 year)',
-        'Free SSL certificate',
         '6 months free support',
         'Priority support & maintenance'
       ],
@@ -218,7 +209,7 @@ export default function Pricing() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
-          className="mt-16 bg-white rounded-2xl shadow-lg p-8 max-w-4xl mx-auto"
+          className="mt-16 bg-white rounded-2xl shadow-lg p-8"
         >
           <div className="text-center mb-8">
             <h3 className="text-3xl font-bold text-gray-900 mb-4">
@@ -229,7 +220,7 @@ export default function Pricing() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* WhatsApp Services */}
             <div className="bg-green-50 rounded-xl p-6">
               <div className="flex items-center mb-4">
@@ -319,6 +310,36 @@ export default function Pricing() {
                 <li className="flex items-center">
                   <Check className="w-4 h-4 text-orange-500 mr-2" />
                   Performance reports
+                </li>
+              </ul>
+            </div>
+
+            {/* Live Chat & Support Services */}
+            <div className="bg-purple-50 rounded-xl p-6">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center mr-4">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  </svg>
+                </div>
+                <h4 className="text-xl font-semibold text-gray-900">Live Chat & Support</h4>
+              </div>
+              <ul className="space-y-2 text-gray-700">
+                <li className="flex items-center">
+                  <Check className="w-4 h-4 text-purple-500 mr-2" />
+                  Real-time chat widget
+                </li>
+                <li className="flex items-center">
+                  <Check className="w-4 h-4 text-purple-500 mr-2" />
+                  Automated chat responses
+                </li>
+                <li className="flex items-center">
+                  <Check className="w-4 h-4 text-purple-500 mr-2" />
+                  Ticket management system
+                </li>
+                <li className="flex items-center">
+                  <Check className="w-4 h-4 text-purple-500 mr-2" />
+                  24/7 customer support
                 </li>
               </ul>
             </div>

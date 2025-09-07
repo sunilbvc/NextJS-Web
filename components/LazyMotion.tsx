@@ -13,3 +13,4 @@ export const LazyMotionWrapper = ({ children }: { children: React.ReactNode }) =
 
 // Optimized motion components
 export const OptimizedMotion = motion
+

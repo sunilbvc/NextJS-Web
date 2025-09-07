@@ -33,3 +33,5 @@
   <circle cx="100" cy="100" r="40" fill="white" opacity="0.2"/>
   <text x="100" y="110" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="bold">DS</text>
 </svg>
+
+
