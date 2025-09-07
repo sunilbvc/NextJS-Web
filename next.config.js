@@ -5,8 +5,8 @@ const nextConfig = {
     optimizePackageImports: ['lucide-react', 'framer-motion'],
     // Enable modern bundling
     esmExternals: true,
-    // Optimize CSS
-    optimizeCss: true,
+    // Optimize CSS - disabled due to critters dependency issue
+    // optimizeCss: true,
   },
   compiler: {
     // Remove console.logs in production

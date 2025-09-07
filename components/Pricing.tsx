@@ -365,4 +365,3 @@ export default function Pricing() {
     </section>
   )
 }
-// Updated Sun Sep  7 21:39:49 IST 2025
