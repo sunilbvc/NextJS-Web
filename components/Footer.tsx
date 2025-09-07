@@ -56,7 +56,7 @@ export default function Footer() {
     { name: 'About', href: '#about' },
     { name: 'Contact', href: '#contact' },
     { name: 'Careers', href: '#' },
-    { name: 'Privacy Policy', href: '#' }
+    { name: 'Privacy Policy', href: '/privacy-policy' }
   ]
 
   const services = [
@@ -238,13 +238,13 @@ export default function Footer() {
             </div>
             
             <div className="flex items-center space-x-6 text-sm text-gray-400">
-              <a href="#" className="hover:text-white transition-colors duration-200">
+              <a href="/privacy-policy" className="hover:text-white transition-colors duration-200">
                 Privacy Policy
               </a>
-              <a href="#" className="hover:text-white transition-colors duration-200">
+              <a href="/terms-of-service" className="hover:text-white transition-colors duration-200">
                 Terms of Service
               </a>
-              <a href="#" className="hover:text-white transition-colors duration-200">
+              <a href="/cookie-policy" className="hover:text-white transition-colors duration-200">
                 Cookie Policy
               </a>
             </div>

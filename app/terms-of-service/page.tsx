@@ -200,10 +200,10 @@ export default function TermsOfService() {
                 If you have any questions about these Terms of Service, please contact us:
               </p>
               <div className="bg-gray-50 p-6 rounded-lg">
-                <p className="text-gray-700 mb-2"><strong>Email:</strong> legal@yourcompany.com</p>
-                <p className="text-gray-700 mb-2"><strong>Phone:</strong> +91-XXXXX-XXXXX</p>
+                <p className="text-gray-700 mb-2"><strong>Email:</strong> support@digisolence.in</p>
+                <p className="text-gray-700 mb-2"><strong>Phone:</strong> +91 8949648309</p>
                 <p className="text-gray-700 mb-2"><strong>Address:</strong> Mumbai, Maharashtra, India</p>
-                <p className="text-gray-700"><strong>Website:</strong> <a href="/" className="text-blue-600 hover:text-blue-800 underline">yourwebsite.com</a></p>
+                <p className="text-gray-700"><strong>Website:</strong> <a href="https://www.digisolence.in" className="text-blue-600 hover:text-blue-800 underline">www.digisolence.in</a></p>
               </div>
             </section>
           </div>
